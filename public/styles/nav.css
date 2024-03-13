@@ -6,28 +6,26 @@ nav {
   font-size: 24px;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-bottom: 1em;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 
 }
 
-.header-left {
+.nav-left {
   display: flex;
   font-family: "Bungee", sans-serif;
   font-size: 40px;
 }
 
-.header-right {
+.nav-right {
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-size: 20px;
   margin-right: 0.5em;
 }
 
-.header-right i {
+.nav-right i {
   color: red;
 }
 
