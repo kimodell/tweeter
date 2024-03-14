@@ -16,7 +16,7 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #f8f9fc;
   font-size: 24px;
   font-family: "Source Sans 3", sans-serif;
 }
@@ -24,3 +24,9 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.container {
+  width: 90%; 
+  background-color: #f8f9fc;
+  margin: auto;
+ }
