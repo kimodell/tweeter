@@ -30,3 +30,7 @@ border: 0;
   position: relative;
 }
 
+.negative {
+  color: red;
+}
+
