@@ -1,5 +1,5 @@
-//
-
+//implement character counter
+//run DOM
 $(document).ready(function() {
 
   //event listener to monitor text input to the tweet text area
