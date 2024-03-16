@@ -16,9 +16,8 @@ border: 0;
 .counter {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
   position: relative;
-  top: -1rem
+  top: 1rem;
 } 
 
 .submit-button {
@@ -26,8 +25,8 @@ border: 0;
   background-color: #4056A1;
   color: #FFFFFF;
   border-color: #4056A1;
-  top: 1rem;
   position: relative;
+  top: -0.5rem;
 }
 
 .negative {
