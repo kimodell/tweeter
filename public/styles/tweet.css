@@ -16,7 +16,7 @@
  }
 
  .tweet-header {
-  block-size: 2em;
+  block-size: 3em;
  }
 
 .tweet-person { 
@@ -25,7 +25,7 @@
 }
 
 .tweet-avatar{
-  block-size: 3em;
+  block-size: 2em;
 }
 
 .tweet-handle{
@@ -45,13 +45,10 @@
   font-size: 0.75em;
   block-size: 1.25em;
   margin-top: 0.5em;
+  width: 100%;
 }
 
-.tweet-icons {
-  width: 75%;
-}
-
-.tweet-icons i:hover {
+i:hover {
   color: #4056A1;
 }
 
