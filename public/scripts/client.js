@@ -4,6 +4,22 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$(document).ready(function() {
+  //event listener to submit POST request asynchronously
+  $("#tweet-form").on("submit", function(event) {
+    //prevent default behaviour
+    event.preventDefault();
+    //turn form data into a query string
+    var formData = $(this).serialize();
+    //POST request to send serialized data to server
+    $.post("/tweets", formData)
+      .then(() => {
+        //add stuff here later
+      });
+  });
+});
+
+
 const data = [
   {
     "user": {
@@ -29,6 +45,8 @@ const data = [
   }
 ];
 
+
+
 const renderTweets = function(tweets) {
   // loops through tweets
   tweets.forEach(tweet => {
@@ -37,14 +55,14 @@ const renderTweets = function(tweets) {
     // takes return value and appends it to the tweets container
     $('.tweet-container').append($tweet);
   });
-}
+};
 
 //function to take object with tweet data and return an HTML article containing tweet info
 const createTweetElement = function(tweet) {
 
   //define tweet based on object
   const { user: { name, avatars, handle }, content: { text }, created_at } = tweet;
-  
+
   //define tweet HTML with applicable info from data above
   let $tweet = $(`
     <article class="tweet">
@@ -71,7 +89,7 @@ const createTweetElement = function(tweet) {
       </footer>
     </article>
   `);
-   
+
   //return tweet in HTML form
   return $tweet;
 };
