@@ -5,34 +5,39 @@
  */
 
 $(document).ready(function() {
+
   //event listener to submit POST request asynchronously
   $("#tweet-form").on("submit", function(event) {
     //prevent default behaviour
     event.preventDefault();
 
-    //define variable for number of characters in tweet text form
-    let charCount = $(".tweet-text").val().length;
-
-    //display error if no text is entered
-    if (charCount === 0) {
-      alert("You cannot post an empty tweet!");
-      return;
-    }
+    const isTweetValid = function() {
+      //define variable for number of characters in tweet text form with whitespace trimmed
+      let charCount = $(".tweet-text").val().trim().length;
+      
+      //display error if no text is entered
+      if (charCount === 0) {
+        alert("You cannot post an empty tweet!");
+        return false;
+      } 
+      //display error if character count exceeds 140
+      if (charCount > 140) {
+        alert("You cannot post a tweet more than 140 characters long!");
+        return false;
+      }
+      return true;
+    };
     
-    //display error if no text form exceeds 140 chatacters
-    if (charCount > 140) {
-      alert("You cannot post a tweet more than 140 characters long!");
-      return;
+    //if tweet is valid, continue with POST request
+    if (isTweetValid()) {
+      //turn form data into a query string
+      let formData = $(this).serialize();
+      //POST request to send serialized data to server
+      $.post("/tweets", formData)
+        .then(() => {
+          loadTweets();
+        });
     }
-
-
-    //turn form data into a query string
-    let formData = $(this).serialize();
-    //POST request to send serialized data to server
-    $.post("/tweets", formData)
-      .then(() => {
-        loadTweets();
-      });
   });
 
   const loadTweets = function() {
@@ -95,12 +100,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-//const $tweet = createTweetElement(data[0]);
-//console.log($tweet);
 
-//$(document).ready(() => $('.tweet-container').append($tweet));
-
-//call renderTweets after DOM fully loaded
 $(document).ready(() => {
   renderTweets(loadTweets());
 });
