@@ -10,41 +10,25 @@ $(document).ready(function() {
     //prevent default behaviour
     event.preventDefault();
     //turn form data into a query string
-    var formData = $(this).serialize();
+    let formData = $(this).serialize();
     //POST request to send serialized data to server
     $.post("/tweets", formData)
       .then(() => {
         //add stuff here later
       });
   });
+
+  const loadTweets = function() {
+    //GET request to load tweets using renderTweets function
+    $.get("/tweets")
+      .then((res) => {
+        renderTweets(res);
+      });
+  };
+
+loadTweets();
+
 });
-
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1710628931892
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1710715331892
-  }
-];
-
 
 
 const renderTweets = function(tweets) {
@@ -53,12 +37,15 @@ const renderTweets = function(tweets) {
     // calls createTweetElement for each tweet
     const $tweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $('.tweet-container').append($tweet);
+    $('.tweet-container').prepend($tweet);
   });
 };
 
 //function to take object with tweet data and return an HTML article containing tweet info
 const createTweetElement = function(tweet) {
+
+  //Utilize timeAgo library to format tweet submission dates
+  const timeAgo = timeago.format(tweet.created_at, 'en_US');
 
   //define tweet based on object
   const { user: { name, avatars, handle }, content: { text }, created_at } = tweet;
@@ -79,7 +66,7 @@ const createTweetElement = function(tweet) {
       <div class = "tweet-border"></div>
       <footer class="tweet-footer">
         <div class="tweet-date">
-          <p>${new Date(created_at).toLocaleString()}</p>
+        <p>${timeAgo}</p>
         </div>
         <div class="tweet-icons">
           <i class="fa-solid fa-flag"></i>
@@ -101,5 +88,5 @@ const createTweetElement = function(tweet) {
 
 //call renderTweets after DOM fully loaded
 $(document).ready(() => {
-  renderTweets(data);
+  renderTweets(formData);
 });
