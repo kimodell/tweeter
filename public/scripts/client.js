@@ -14,7 +14,7 @@ $(document).ready(function() {
     //POST request to send serialized data to server
     $.post("/tweets", formData)
       .then(() => {
-        //add stuff here later
+        loadTweets();
       });
   });
 
@@ -25,9 +25,6 @@ $(document).ready(function() {
         renderTweets(res);
       });
   };
-
-loadTweets();
-
 });
 
 
@@ -88,5 +85,5 @@ const createTweetElement = function(tweet) {
 
 //call renderTweets after DOM fully loaded
 $(document).ready(() => {
-  renderTweets(formData);
+  renderTweets(loadTweets());
 });
