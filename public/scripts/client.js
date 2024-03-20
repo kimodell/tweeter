@@ -9,6 +9,23 @@ $(document).ready(function() {
   $("#tweet-form").on("submit", function(event) {
     //prevent default behaviour
     event.preventDefault();
+
+    //define variable for number of characters in tweet text form
+    let charCount = $(".tweet-text").val().length;
+
+    //display error if no text is entered
+    if (charCount === 0) {
+      alert("You cannot post an empty tweet!");
+      return;
+    }
+    
+    //display error if no text form exceeds 140 chatacters
+    if (charCount > 140) {
+      alert("You cannot post a tweet more than 140 characters long!");
+      return;
+    }
+
+
     //turn form data into a query string
     let formData = $(this).serialize();
     //POST request to send serialized data to server
