@@ -5,8 +5,17 @@ height: 40px;
 border: 0;
 }
 
+.new-tweet {
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
 .new-tweet-footer {
   border-top: 3px solid #545149;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding-top: 1em;
 }
 
 .submit-button, .counter {
@@ -16,8 +25,6 @@ border: 0;
 .counter {
   display: flex;
   justify-content: flex-end;
-  position: relative;
-  top: 1rem;
 } 
 
 .submit-button {
@@ -25,8 +32,6 @@ border: 0;
   background-color: #4056A1;
   color: #FFFFFF;
   border-color: #4056A1;
-  position: relative;
-  top: -0.5rem;
 }
 
 .negative {
