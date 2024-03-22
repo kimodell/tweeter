@@ -9,6 +9,12 @@ border: 0;
   padding-top: 3em;
   padding-bottom: 3em;
 }
+.new-tweet-alert {
+  border: 3px solid red;
+  display: flex;
+  justify-content: center;
+  
+}
 
 .new-tweet-footer {
   border-top: 3px solid #545149;
