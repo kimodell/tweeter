@@ -59,6 +59,13 @@ $(document).ready(function() {
       $('.tweet-container').prepend($tweet);
     });
   };
+  
+  //sanitize incoming text inputs
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML
+  };
 
   //function to take object with tweet data and return an HTML article containing tweet info
   const createTweetElement = function(tweet) {
@@ -80,7 +87,7 @@ $(document).ready(function() {
         <div class="tweet-handle">${handle}</div>
       </header>
       <div class="tweet-content">
-        <p>${text}</p>
+      <div>${escape(text)}</div>
       </div>
       <div class = "tweet-border"></div>
       <footer class="tweet-footer">
