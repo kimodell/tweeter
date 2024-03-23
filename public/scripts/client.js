@@ -11,20 +11,23 @@ $(document).ready(function() {
     //prevent default behaviour
     event.preventDefault();
 
+
     const isTweetValid = function() {
       //define variable for number of characters in tweet text form with whitespace trimmed
-      let charCount = $(".tweet-text").val().trim().length;
+      let charCount = $(".tweet-text").val().trim().length; 
 
       //display error if no text is entered
       if (charCount === 0) {
-        alert("You cannot post an empty tweet!");
+        $(".new-tweet-alert").text("You cannot post an empty tweet!").slideDown("slow");
         return false;
       }
       //display error if character count exceeds 140
       if (charCount > 140) {
-        alert("You cannot post a tweet more than 140 characters long!");
+        $(".new-tweet-alert").text("You cannot post a tweet more than 140 characters long!").slideDown("slow");
         return false;
       }
+
+      $(".new-tweet-alert").slideUp("slow");
       return true;
     };
 
