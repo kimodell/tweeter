@@ -17,3 +17,17 @@
 .header-name{
   margin-top: 5px;
 }
+
+@media only screen and (width >= 1024px) {
+  .header-main {
+    display: flex;
+    justify-content: flex-end;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    margin: 50px;
+    margin-top: 200px;
+    width: 40%;
+    height: 400px;
+    flex-direction: column;
+  }
+}

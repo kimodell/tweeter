@@ -2,7 +2,7 @@ nav {
   height: 120px;
   width: 100%;
   color: #FFFFFF;
-  background-color: #4056A1;
+  background-color: #a3b0db;
   font-size: 24px;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -28,6 +28,20 @@ nav {
 }
 
 .nav-right i {
-  color: red;
+  color: #56a140
 }
 
+.fa-solid.fa-angles-down {
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-solid.fa-angles-down:hover {
+  transform: translateY(5px);
+  color: #FFFFFF
+}
+
+@media only screen and (width >= 1024px) {
+  nav {
+  background-color: #4056A1;
+  }
+}
