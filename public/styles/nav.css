@@ -37,11 +37,11 @@ nav {
 
 .fa-solid.fa-angles-down:hover {
   transform: translateY(5px);
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
-@media only screen and (width >= 1024px) {
+@media only screen and (width >=1024px) {
   nav {
-  background-color: #4056A1;
+    background-color: #4056A1;
   }
 }
