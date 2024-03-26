@@ -16,7 +16,7 @@ $(document).ready(function() {
       //define variable for number of characters in tweet text form with whitespace trimmed
       let charCount = $(".tweet-text").val().trim().length;
 
-      //display error if no text is entered
+      //display error via slide down message if no text is entered
       if (charCount === 0) {
         $(".new-tweet-alert").text("You cannot post an empty tweet!").slideDown("slow");
         return false;
@@ -26,7 +26,7 @@ $(document).ready(function() {
         $(".new-tweet-alert").text("You cannot post a tweet more than 140 characters long!").slideDown("slow");
         return false;
       }
-
+      //if error not present, existing errors slide up
       $(".new-tweet-alert").slideUp("slow");
       return true;
     };
@@ -37,6 +37,7 @@ $(document).ready(function() {
       let formData = $(this).serialize();
       //POST request to send serialized data to server
       $.post("/tweets", formData)
+        //if POST promise fulfilled, load the tweets
         .then(() => {
           loadTweets();
           $(".tweet-text").val("");
