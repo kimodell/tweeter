@@ -23,5 +23,5 @@ Tweeter was built upon the starter code from [Lighthouse Labs](https://github.co
 
 ## Final Product
 
-[Tweeter Desktop View](https://github.com/kimodell/tweeter/blob/master/docs/desktop-view.png?raw=true)
-[Tweeter Mobile View](https://github.com/kimodell/tweeter/blob/master/docs/mobile-view.png?raw=true)
+![Tweeter Desktop View](https://github.com/kimodell/tweeter/blob/master/docs/desktop-view.png?raw=true)
+![Tweeter Mobile View](https://github.com/kimodell/tweeter/blob/master/docs/mobile-view.png?raw=true)
