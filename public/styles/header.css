@@ -1,7 +1,7 @@
 .header-main {
   height: 520px;
   padding-top: 120px;
-  width: 100%; 
+  width: 100%;
   background-color: #a3b0db;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   display: flex;
@@ -10,15 +10,15 @@
   flex-direction: column;
 }
 
-.header-avatar{
- margin-top: 10px;
+.header-avatar {
+  margin-top: 10px;
 }
 
-.header-name{
+.header-name {
   margin-top: 5px;
 }
 
-@media only screen and (width >= 1024px) {
+@media only screen and (width >=1024px) {
   .header-main {
     display: flex;
     justify-content: flex-end;
