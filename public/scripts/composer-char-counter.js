@@ -14,10 +14,10 @@ $(document).ready(function() {
     let counter = $('.counter').text(textRemaining);
 
     //if text count goes below zero, add negative class to change color to red
-    if (textRemaining < 0){
+    if (textRemaining < 0) {
       counter.addClass('negative');
     } else {
       counter.removeClass('negative');
     }
-  });  
+  });
 });
