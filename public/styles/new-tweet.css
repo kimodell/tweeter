@@ -27,6 +27,11 @@ border: 0;
 
 .submit-button, .counter {
   font-family: "Bungee", sans-serif;
+  
+}
+
+.tweet-content {
+  overflow-wrap: break-word;
 }
 
 .counter {
