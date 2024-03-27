@@ -6,6 +6,28 @@
 
 $(document).ready(function() {
 
+  //function to load tweets when page loaded
+  const loadTweets = function() {
+    //GET request to load tweets using renderTweets function
+    $.get("/tweets")
+      .then((res) => {
+        renderTweets(res);
+      });
+  };
+
+  const renderTweets = function(tweets) {
+    //empty tweet container to prevent re-posting esisting tweets
+    const container = $('.tweet-container').empty();
+
+    // loops through tweets
+    tweets.forEach(tweet => {
+      // calls createTweetElement for each tweet
+      const $tweet = createTweetElement(tweet);
+      // takes return value and appends it to the tweets container
+      container.prepend($tweet);
+    });
+  };
+
   //event listener to submit POST request asynchronously
   $("#tweet-form").on("submit", function(event) {
     //prevent default behaviour
@@ -46,23 +68,8 @@ $(document).ready(function() {
     }
   });
 
-  const loadTweets = function() {
-    //GET request to load tweets using renderTweets function
-    $.get("/tweets")
-      .then((res) => {
-        renderTweets(res);
-      });
-  };
-
-  const renderTweets = function(tweets) {
-    // loops through tweets
-    tweets.forEach(tweet => {
-      // calls createTweetElement for each tweet
-      const $tweet = createTweetElement(tweet);
-      // takes return value and appends it to the tweets container
-      $('.tweet-container').prepend($tweet);
-    });
-  };
+  // call loadTweets when the document is ready to fetch tweets on initial page load
+  loadTweets();
 
   //sanitize incoming text inputs
   const escape = function(str) {
@@ -91,7 +98,7 @@ $(document).ready(function() {
         <div class="tweet-handle">${handle}</div>
       </header>
       <div class="tweet-content">
-      <div>${escape(text)}</div>
+      <div class="tweet-tweet">${escape(text)}</div>
       </div>
       <div class = "tweet-border"></div>
       <footer class="tweet-footer">
