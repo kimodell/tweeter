@@ -43,5 +43,6 @@ body {
     margin-top: 150px;
     margin-right: 90px;
     padding-left: 200px;
+    max-width: 57vw;
   }
 }
